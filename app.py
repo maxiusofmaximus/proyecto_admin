@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from conexion import get_connection
 
 # Crear aplicación flask
 app = Flask(__name__)
@@ -18,10 +19,29 @@ def inicio():
 
 # ==================================
 # RUTA USUARIOS
-# ==================================
+# ===============================
 @app.route("/usuarios")
 def usuarios():
-    return render_template("usuarios/usuarios.html")
+
+    # Crear conexión a la base de datos
+    conexion = get_connection()
+
+    # Crear cursor para ejecutar consultas
+    # dictionary=True devuelve resultados como diccionario (clave=campo)
+    cursor = conexion.cursor(dictionary=True)
+
+    # Ejecutar consulta SQL
+    cursor.execute("SELECT * FROM usuarios")
+
+    # Obtener todos los registros
+    datos = cursor.fetchall()
+
+    # Cerrar cursor y conexión
+    cursor.close()
+    conexion.close()
+
+    # Enviar datos al HTML
+    return render_template("usuarios/usuarios.html", usuarios=datos)
 
 
 @app.route("/contacto")
