@@ -5,11 +5,8 @@
         <!--begin::Brand Link-->
         <a href="./index.html" class="brand-link">
             <!--begin::Brand Image-->
-            <img src="./assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+            <img src="../static/img/AdminLTEFullLogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
             <!--end::Brand Image-->
-            <!--begin::Brand Text-->
-            <span class="brand-text fw-light">AdminLTE 4</span>
-            <!--end::Brand Text-->
         </a>
         <!--end::Brand Link-->
     </div>
@@ -29,25 +26,31 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <!-- Enlace a la página de la Tabla con Datos -->
+                        <li class="nav-item">
+                            <a href="{{ url_for('usuarios') }}" class="nav-link">
+                                <i class="nav-icon bi bi-table"></i>
+                                <p>Lista de Usuarios</p>
+                            </a>
+                        </li>
+
+                        <!-- Enlace a la página de Inicio -->
+                        <li class="nav-item">
+                            <a href="{{ url_for('inicio') }}" class="nav-link">
+                                <i class="nav-icon bi bi-house"></i>
+                                <p>Ir al Dashboard</p>
+                            </a>
+                        </li>
+
+                        <!-- Tu enlace de contacto ya está bien -->
                         <li class="nav-item">
                             <a href="{{ url_for('contacto') }}" class="nav-link active">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Contacto</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
-                                <i class="nav-icon bi bi-circle"></i>
-                                <p>Dashboard v2</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
-                                <i class="nav-icon bi bi-circle"></i>
-                                <p>Dashboard v3</p>
-                            </a>
-                        </li>
                     </ul>
+
                 </li>
                 <li class="nav-item">
                     <a href="./generate/theme.html" class="nav-link">
